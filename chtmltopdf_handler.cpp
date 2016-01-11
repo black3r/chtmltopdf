@@ -15,8 +15,8 @@ void CHtmlToPdfHandler::OnLoadEnd(CefRefPtr<CefBrowser> browser, CefRefPtr<CefFr
     settings.header_footer_enabled = true;
     settings.backgrounds_enabled = true;
     settings.margin_type = PDF_PRINT_MARGIN_NONE;
-    settings.page_height = 297000;
-    settings.page_width = 210000;
+    settings.page_height = this->page_height;
+    settings.page_width = this->page_width;
     settings.landscape = false;
 
     browser->GetHost()->PrintToPDF(this->pdf_file_name, settings, this);
@@ -135,4 +135,9 @@ CefRefPtr<CefLifeSpanHandler> CHtmlToPdfHandler::GetLifeSpanHandler() {
 
 CefRefPtr<CefLoadHandler> CHtmlToPdfHandler::GetLoadHandler() {
     return this;
+}
+
+void CHtmlToPdfHandler::setPageSize(int height, int width) {
+    this->page_height = height;
+    this->page_width = width;
 }

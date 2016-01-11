@@ -43,6 +43,8 @@ public:
 
     void CloseAllBrowsers(bool force_close);
 
+    void setPageSize(int height, int width);
+
     virtual CefRefPtr<CefDisplayHandler> GetDisplayHandler();
     virtual CefRefPtr<CefLifeSpanHandler> GetLifeSpanHandler();
     virtual CefRefPtr<CefLoadHandler> GetLoadHandler();
@@ -51,6 +53,8 @@ public:
 private:
     typedef std::list<CefRefPtr<CefBrowser> > BrowserList;
     BrowserList browser_list_;
+    int page_height;
+    int page_width;
 
     bool is_closing_;
 

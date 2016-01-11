@@ -15,9 +15,11 @@ void CHtmlToPdfApp::OnContextInitialized() {
 
   std::string url;
   std::string target;
+  std::string page_size;
 
   url = command_line->GetSwitchValue("url");
   target = command_line->GetSwitchValue("output");
+  page_size = command_line->GetSwitchValue("page-size");
 
   if (url.empty()) {
     url = "http://www.google.com";
@@ -26,6 +28,14 @@ void CHtmlToPdfApp::OnContextInitialized() {
   if (target.empty()) {
     target = "/tmp/output.pdf";
   }
+
+  if (page_size == "A4")
+    handler->setPageSize(297000, 210000);
+  else if (page_size == "Letter")
+    handler->setPageSize(279400, 215900);
+  else
+    // A4 is the default
+    handler->setPageSize(297000, 210000);
 
   handler->setFileName(target);
 
