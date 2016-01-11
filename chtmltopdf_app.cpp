@@ -30,8 +30,38 @@ void CHtmlToPdfApp::OnContextInitialized() {
   handler->setFileName(target);
 
   CefBrowserHost::CreateBrowser(window_info, handler.get(), url, browser_settings, NULL);
+
 }
 
 CHtmlToPdfApp::CHtmlToPdfApp() {
 
+}
+
+CefRefPtr<CefPrintHandler> CHtmlToPdfApp::GetPrintHandler() {
+  return this;
+}
+
+void CHtmlToPdfApp::OnPrintStart(CefRefPtr<CefBrowser> browser) {
+
+}
+
+void CHtmlToPdfApp::OnPrintSettings(CefRefPtr<CefPrintSettings> settings, bool get_defaults) {
+
+}
+
+bool CHtmlToPdfApp::OnPrintDialog(bool has_selection, CefRefPtr<CefPrintDialogCallback> callback) {
+  return false;
+}
+
+bool CHtmlToPdfApp::OnPrintJob(const CefString &document_name, const CefString &pdf_file_path,
+                               CefRefPtr<CefPrintJobCallback> callback) {
+  return false;
+}
+
+void CHtmlToPdfApp::OnPrintReset() {
+
+}
+
+CefSize CHtmlToPdfApp::GetPdfPaperSize(int device_units_per_inch) {
+  return CefSize(800, 600);
 }
