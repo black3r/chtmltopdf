@@ -7,7 +7,7 @@ void CHtmlToPdfApp::OnContextInitialized() {
   CEF_REQUIRE_UI_THREAD();
 
   CefWindowInfo window_info;
-  window_info.SetAsWindowless(-1, 0);
+  window_info.SetAsWindowless(NULL, 0);
 
   CefRefPtr<CHtmlToPdfHandler> handler(new CHtmlToPdfHandler());
   CefBrowserSettings browser_settings;
