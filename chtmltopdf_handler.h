@@ -50,6 +50,9 @@ public:
     virtual CefRefPtr<CefLoadHandler> GetLoadHandler();
     virtual CefRefPtr<CefRenderHandler> GetRenderHandler();
 
+    void PrintStart(CefRefPtr<CefBrowser> browser);
+    void setPrintOnLoad(bool printOnLoad);
+
 private:
     typedef std::list<CefRefPtr<CefBrowser> > BrowserList;
     BrowserList browser_list_;
@@ -60,6 +63,7 @@ private:
 
     CefRefPtr<CefBrowser> browser_;
     std::string pdf_file_name;
+    bool printOnLoad;
 
     IMPLEMENT_REFCOUNTING(CHtmlToPdfHandler);
 };

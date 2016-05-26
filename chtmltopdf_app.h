@@ -2,6 +2,7 @@
 #define CEF_CHTMLTOPDF_H
 
 #include "include/cef_app.h"
+#include "chtmltopdf_handler.h"
 
 
 class CHtmlToPdfApp : public CefApp,
@@ -33,6 +34,8 @@ public:
 
 private:
     IMPLEMENT_REFCOUNTING(CHtmlToPdfApp);
+
+    CefRefPtr<CHtmlToPdfHandler> handler;
 
 };
 

@@ -10,7 +10,13 @@
 void CHtmlToPdfHandler::OnLoadEnd(CefRefPtr<CefBrowser> browser, CefRefPtr<CefFrame> frame, int httpStatusCode) {
     CefLoadHandler::OnLoadEnd(browser, frame, httpStatusCode);
     std::cout << "Load finished!" << std::endl;
+    if (this->printOnLoad) {
+        std::cout << "Print on load!" << std::endl;
+        this->PrintStart(browser);
+    }
+}
 
+void CHtmlToPdfHandler::PrintStart(CefRefPtr<CefBrowser> browser) {
     CefPdfPrintSettings settings;
     settings.header_footer_enabled = true;
     settings.backgrounds_enabled = true;
@@ -140,4 +146,8 @@ CefRefPtr<CefLoadHandler> CHtmlToPdfHandler::GetLoadHandler() {
 void CHtmlToPdfHandler::setPageSize(int height, int width) {
     this->page_height = height;
     this->page_width = width;
+}
+
+void CHtmlToPdfHandler::setPrintOnLoad(bool printOnLoad) {
+    this->printOnLoad = printOnLoad;
 }
