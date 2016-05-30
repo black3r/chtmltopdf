@@ -25,6 +25,11 @@ public:
 
     virtual bool GetViewRect(CefRefPtr<CefBrowser> browser, CefRect &rect);
 
+    virtual bool GetScreenPoint(CefRefPtr<CefBrowser> browser, int viewX, int viewY, int &screenX,
+                                int &screenY) override;
+
+    virtual bool GetRootScreenRect(CefRefPtr<CefBrowser> browser, CefRect &rect) override;
+
     void setFileName(std::string str);
 
     CHtmlToPdfHandler();

@@ -56,6 +56,10 @@ namespace {
 }  // namespace
 
 bool CHtmlToPdfHandler::GetViewRect(CefRefPtr<CefBrowser> browser, CefRect &rect) {
+    rect.x = 0;
+    rect.y = 0;
+    rect.width = 1920;
+    rect.height = 1080;
     return true;
 }
 
@@ -157,4 +161,19 @@ bool CHtmlToPdfHandler::OnConsoleMessage(CefRefPtr<CefBrowser> browser, const Ce
     bool result = CefDisplayHandler::OnConsoleMessage(browser, message, source, line);
     std::cout << "Console: " << message.ToString() << std::endl;
     return result;
+}
+
+bool CHtmlToPdfHandler::GetScreenPoint(CefRefPtr<CefBrowser> browser, int viewX, int viewY, int &screenX,
+                                       int &screenY) {
+    screenX = viewX;
+    screenY = viewY;
+    return true;
+}
+
+bool CHtmlToPdfHandler::GetRootScreenRect(CefRefPtr<CefBrowser> browser, CefRect &rect) {
+    rect.x = 0;
+    rect.y = 0;
+    rect.width = 1920;
+    rect.height = 1080;
+    return true;
 }
