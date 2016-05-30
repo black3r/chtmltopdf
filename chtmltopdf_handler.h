@@ -53,6 +53,10 @@ public:
     void PrintStart(CefRefPtr<CefBrowser> browser);
     void setPrintOnLoad(bool printOnLoad);
 
+
+    virtual bool OnConsoleMessage(CefRefPtr<CefBrowser> browser, const CefString &message, const CefString &source,
+                                  int line) override;
+
 private:
     typedef std::list<CefRefPtr<CefBrowser> > BrowserList;
     BrowserList browser_list_;

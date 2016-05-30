@@ -151,3 +151,10 @@ void CHtmlToPdfHandler::setPageSize(int height, int width) {
 void CHtmlToPdfHandler::setPrintOnLoad(bool printOnLoad) {
     this->printOnLoad = printOnLoad;
 }
+
+bool CHtmlToPdfHandler::OnConsoleMessage(CefRefPtr<CefBrowser> browser, const CefString &message,
+                                         const CefString &source, int line) {
+    bool result = CefDisplayHandler::OnConsoleMessage(browser, message, source, line);
+    std::cout << "Console: " << message.ToString() << std::endl;
+    return result;
+}
