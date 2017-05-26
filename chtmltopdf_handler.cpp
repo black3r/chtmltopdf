@@ -30,8 +30,8 @@ void CHtmlToPdfHandler::PrintStart(CefRefPtr<CefBrowser> browser) {
 }
 
 
-void CHtmlToPdfHandler::OnLoadStart(CefRefPtr<CefBrowser> browser, CefRefPtr<CefFrame> frame) {
-    CefLoadHandler::OnLoadStart(browser, frame);
+void CHtmlToPdfHandler::OnLoadStart(CefRefPtr<CefBrowser> browser, CefRefPtr<CefFrame> frame, CefLoadHandler::TransitionType transition_type) {
+    CefLoadHandler::OnLoadStart(browser, frame, transition_type);
 }
 
 void CHtmlToPdfHandler::OnLoadError(CefRefPtr<CefBrowser> browser, CefRefPtr<CefFrame> frame, ErrorCode errorCode,

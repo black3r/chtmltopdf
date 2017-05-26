@@ -1,5 +1,5 @@
 #include <X11/Xlib.h>
-#include "chtmltopdf/chtmltopdf_app.h"
+#include "tests/chtmltopdf/chtmltopdf_app.h"
 #include "include/base/cef_logging.h"
 
 namespace {

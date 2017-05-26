@@ -43,6 +43,7 @@ SET_CEF_TARGET_OUT_DIR()
 if(OS_LINUX)
     # Executable target.
     add_executable(${CEF_TARGET} ${CHTMLTOPDF_SRCS})
+    SET_EXECUTABLE_TARGET_PROPERTIES(${CEF_TARGET})
     add_dependencies(${CEF_TARGET} libcef_dll_wrapper)
     target_link_libraries(${CEF_TARGET} libcef_lib libcef_dll_wrapper ${CEF_STANDARD_LIBS})
 
